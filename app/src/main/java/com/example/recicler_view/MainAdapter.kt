@@ -1,8 +1,10 @@
 package com.example.recicler_view
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 // El siguiente paso es crear un Adapter para gestionar nuestro RecyclerView y
@@ -18,8 +20,11 @@ class MainAdapter(private val mDataset: List<String>) :
     // y va a implementar las funciones
     inner class MainViewHolder(var v: View) : RecyclerView.ViewHolder(v) {
 
-        fun pintarDatos(dato: String) {
+        val name = v.findViewById<TextView>(R.id.name)
 
+        fun pintarDatos(dato: String) {
+            Log.i("MainAdapter", dato)
+            name.text = dato
         }
     }
 
