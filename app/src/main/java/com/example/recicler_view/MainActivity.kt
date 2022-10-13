@@ -2,6 +2,7 @@ package com.example.recicler_view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +17,10 @@ class MainActivity : AppCompatActivity() {
 
         val mainRecycler = findViewById<RecyclerView>(R.id.mainRecycler)
 
-        val myAdapter = MainAdapter(names)
+        val myAdapter = MainAdapter(names) { name ->
+            Toast.makeText(this, "$name", Toast.LENGTH_SHORT).show()
+        }
+
 //        mainRecycler.layoutManager  = GridLayoutManager(this, 2)
 
         // Ver la lista en vertical

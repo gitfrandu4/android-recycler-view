@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 // - El adapter se encarga de funcionar que el Recycler View Funcione
 // - El ViewHolder se encarga de gestionar la parte visual
 
-class MainAdapter(private val mDataset: List<String>) :
+class MainAdapter(private val mDataset: List<String>, var click: (String) -> Unit ) :
     RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
 
     // Un ViewHolder va a recibir una vista
@@ -25,6 +25,10 @@ class MainAdapter(private val mDataset: List<String>) :
         fun pintarDatos(dato: String) {
             Log.i("MainAdapter", dato)
             name.text = dato
+
+            name.setOnClickListener{
+                click(dato)
+            }
         }
     }
 
